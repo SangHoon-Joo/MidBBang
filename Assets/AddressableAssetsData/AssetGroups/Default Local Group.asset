@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e3d84fe720785674cb2ef6cab4a24b21
+  m_SerializeEntries:
+  - m_GUID: 39635644fa3b75041ba82f779544b794
+    m_Address: Assets/AddressableResources
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8e968e71926941544ba542adca7794ae
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIStartMain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 019503e2391615e4abbae3aeb1611f7c
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGamePlayMain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 96f339e688a7ff3449140fb1ac72d551
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGamePlayMainJoystick.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec6165fb68e259f4b8619fdfa19e3375
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIStartMainInputName.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b01e28507e6102644adc0471bf8bba7d
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIStartMainMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0b597d9976758f64eb72f7b8d218d86b
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGameLobbyMainInLobby.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 045337c917e9bed429bf6b7f5376c22f
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGameLobbyMainSearchLobby.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0b73d1b4096337b499500e754c09ec5f
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGameLobbyMain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f775691ca9450b84c84be839ea95bf76
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGameLobbyMainSearchLobbyPopup.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 38ba4bf4e7a69aa4fa856b40d409319e
+    m_Address: Assets/AddressableResources/Prefabs/UIs/UIGamePlayWorldActorState.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f62115f5c9cc770498727fbef06866cd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9292c818db065e84bb4393c17b18f5e6, type: 2}
+    - {fileID: 11400000, guid: defe9c03b6f125c4785ac5e21a96ad87, type: 2}
