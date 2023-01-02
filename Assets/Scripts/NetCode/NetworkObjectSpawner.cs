@@ -10,14 +10,14 @@ namespace ProjectWilson
     public class NetworkObjectSpawner : MonoBehaviour
     {
         [SerializeField]
-        private NetworkObject _PrefabReference;
+        protected NetworkObject _PrefabReference;
 
         public void Awake()
         {
             Assert.IsNotNull<NetworkObject>(_PrefabReference);
         }
 
-        public void SpawnNetworkObject()
+        public virtual NetworkObject SpawnNetworkObject()
         {
             var instantiatedNetworkObject = Instantiate(_PrefabReference, transform.position, transform.rotation, null);
             SceneManager.MoveGameObjectToScene(instantiatedNetworkObject.gameObject,
@@ -25,6 +25,8 @@ namespace ProjectWilson
                 
             instantiatedNetworkObject.transform.localScale = transform.lossyScale;
             instantiatedNetworkObject.Spawn(destroyWithScene: true);
+
+            return instantiatedNetworkObject;
         }
     }
 }

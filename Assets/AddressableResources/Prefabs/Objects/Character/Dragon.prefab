@@ -175,13 +175,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6917408529859346955}
-  - component: {fileID: 7247238422631022785}
-  - component: {fileID: 4504058495888844942}
+  - component: {fileID: 7908518996048536238}
+  - component: {fileID: 438293052187040089}
   - component: {fileID: 1693659950176581891}
   - component: {fileID: 4870210100946691693}
   - component: {fileID: 8141913743696253707}
   - component: {fileID: 5809544293230340433}
   - component: {fileID: 1106297394209989550}
+  - component: {fileID: 7493036311801757340}
+  - component: {fileID: 1595758162606265082}
   m_Layer: 7
   m_Name: Dragon
   m_TagString: Untagged
@@ -206,7 +208,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7247238422631022785
+--- !u!114 &7908518996048536238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,32 +217,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 6917408529859059243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd2ce081c55786b43bfb6653fd361a40, type: 3}
+  m_Script: {fileID: 11500000, guid: a551f8cc3f8028a41b8159ac9d6721a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterNameState: {fileID: 1106297394209989550}
   _CharacterHPState: {fileID: 8141913743696253707}
   _CharacterLifeState: {fileID: 5809544293230340433}
-  _Collider: {fileID: 4504058495888844942}
+  _Collider: {fileID: 7493036311801757340}
   _LocalID: 3004
---- !u!143 &4504058495888844942
-CharacterController:
+  _NonPlayerAI: {fileID: 438293052187040089}
+--- !u!114 &438293052187040089
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6917408529859059243}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 12
-  m_Radius: 4
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 3, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81f002b9eb5f1b4abbaab695200ca99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NavMeshAgent: {fileID: 1595758162606265082}
+  _Collider: {fileID: 7493036311801757340}
+  Speed: 2
+  RotationSpeed: 10
 --- !u!114 &1693659950176581891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,3 +326,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d4f5149afe93343bcc18a4b6493551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &7493036311801757340
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917408529859059243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4
+  m_Height: 12
+  m_Direction: 1
+  m_Center: {x: 0, y: 3, z: 0}
+--- !u!195 &1595758162606265082
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917408529859059243}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

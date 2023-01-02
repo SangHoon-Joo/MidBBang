@@ -20,23 +20,23 @@ namespace ProjectWilson
 
         protected virtual void Attack(float range, int amount)
         {
-            NetworkCharacter targetNetworkCharacter = DetectNearbyCharacter(range);
+            NetworkCharacter targetNetworkCharacter = DetectForwardCharacter(range);
             if(targetNetworkCharacter == null)
                 return;
             
             targetNetworkCharacter.ReceiveHP(-amount);
         }
 
-        public NetworkCharacter DetectNearbyCharacter(float range)
+        public NetworkCharacter DetectForwardCharacter(float range)
         {
             RaycastHit hitInfo;
-            if(DetectNearbyEntity(true, true, Collider, range, out hitInfo))
+            if(DetectForwardEntity(true, true, Collider, range, out hitInfo))
                 return hitInfo.collider.GetComponent<NetworkCharacter>();
             
             return null;
         }
 
-        public bool DetectNearbyEntity(bool wantPC, bool wantNPC, Collider attacker, float range, out RaycastHit hitInfo)
+        public bool DetectForwardEntity(bool wantPC, bool wantNPC, Collider attacker, float range, out RaycastHit hitInfo)
         {
             int mask = 0;
             if (wantPC)
