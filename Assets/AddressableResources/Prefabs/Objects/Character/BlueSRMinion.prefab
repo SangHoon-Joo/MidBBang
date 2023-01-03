@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941d25414d9505441b8d1deb5ac4a51a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LifeState:
+  Life:
     m_InternalValue: 0
 --- !u!114 &1106297394209989550
 MonoBehaviour:
@@ -309,6 +309,7 @@ MonoBehaviour:
   _CharacterLifeState: {fileID: 5809544293230340433}
   _Collider: {fileID: 4357187526365411471}
   _LocalID: 3000
+  DefaultSide: 1
   _NonPlayerAI: {fileID: 6585227199289988474}
 --- !u!114 &6585227199289988474
 MonoBehaviour:

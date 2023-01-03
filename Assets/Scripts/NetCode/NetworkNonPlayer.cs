@@ -20,6 +20,7 @@ namespace ProjectWilson
         public override async void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
+
             if (IsServer)
             {
                 int retryCount = 0;

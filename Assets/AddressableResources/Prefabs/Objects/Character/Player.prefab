@@ -363,6 +363,7 @@ MonoBehaviour:
   _CharacterLifeState: {fileID: 5030492145191853422}
   _Collider: {fileID: 4504058495888844942}
   _LocalID: 3999
+  DefaultSide: 2
   _CharacterController: {fileID: 6917408529853574095}
   _CharacterMovementController: {fileID: 6803006620775864851}
 --- !u!1 &8667807343258406398

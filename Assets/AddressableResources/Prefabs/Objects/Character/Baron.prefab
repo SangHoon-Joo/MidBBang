@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941d25414d9505441b8d1deb5ac4a51a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LifeState:
+  Life:
     m_InternalValue: 0
 --- !u!195 &637962969234036444
 NavMeshAgent:
@@ -278,6 +278,7 @@ MonoBehaviour:
   _CharacterLifeState: {fileID: 5809544293230340433}
   _Collider: {fileID: 7165214310996855301}
   _LocalID: 3003
+  DefaultSide: 2
   _NonPlayerAI: {fileID: 4161901374439072064}
 --- !u!114 &1416219873895863834
 MonoBehaviour:

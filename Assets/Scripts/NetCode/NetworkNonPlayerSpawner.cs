@@ -13,10 +13,11 @@ namespace ProjectWilson
 
         public override NetworkObject SpawnNetworkObject()
         {
+            Debug.LogWarning($"[test] NetworkNonPlayerSpawner : SpawnNetworkObject() : Side = {Side}");
             var networkObject = base.SpawnNetworkObject();
             
             NetworkNonPlayer networkNonPlayer = networkObject.GetComponent<NetworkNonPlayer>();
-            networkNonPlayer.CurrentSide = Side;
+            //networkNonPlayer.CurrentSide = Side;
 
             return networkObject;
         }

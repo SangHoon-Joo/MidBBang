@@ -15,14 +15,15 @@ namespace ProjectWilson
             Max
         }
 
-        protected Side _Side;
-        //protected NetworkVariable<Side> _Side = new NetworkVariable<Side>(Side.None, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        //protected Side _Side;
+        protected NetworkVariable<Side> _Side = new NetworkVariable<Side>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        public Side DefaultSide;
         public Side CurrentSide
         {
-            get => _Side;
+            get => _Side.Value;
             set {
                 if (!_InitializedSide) { _InitializedSide = true; }
-                _Side = value;
+                _Side.Value = value;
             }
         }
         protected bool _InitializedSide;
@@ -34,6 +35,7 @@ namespace ProjectWilson
             base.OnNetworkSpawn();
             if(IsOwner)
             {
+                CurrentSide = DefaultSide;
                 Sight = _TableData.Sight;
             }
         }

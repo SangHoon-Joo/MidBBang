@@ -110,7 +110,7 @@ namespace ProjectWilson
         // Run every frame character is in the idle state.
         private void Idle_SuperUpdate()
         {
-			
+			//currentState = AIState.Move;
         }
 
         private void Move_EnterState()

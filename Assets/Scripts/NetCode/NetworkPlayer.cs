@@ -22,11 +22,10 @@ namespace ProjectWilson
             base.OnNetworkSpawn();
 
             string locationTagName = IsHost ? "RedPlayerStartLocation" : "BluePlayerStartLocation";
-            CurrentSide = IsHost ? Side.Blue : Side.Red;
 
             if (IsOwner)
             {
-                CurrentSide = CurrentSide == Side.Blue ? Side.Red : Side.Blue;
+                CurrentSide = IsHost ? Side.Red : Side.Blue;
 
                 if(SceneGamePlay.Instance == null || SceneGamePlay.Instance.UIGamePlayMain == null)
                     return;

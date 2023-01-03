@@ -32,7 +32,15 @@ namespace ProjectWilson
 			foreach(var networkObjectSpawner in _NetworkObjectSpawnerList)
 			{
 				if(NetworkManager.Singleton.IsServer)
-					networkObjectSpawner.SpawnNetworkObject();
+				{
+					if(networkObjectSpawner is NetworkNonPlayerSpawnerRepeat networkObjectSpawnerRepeat)
+					{
+						networkObjectSpawnerRepeat.SpawnNetworkObjectWaveRepeat();
+						continue;
+					}
+					else
+						networkObjectSpawner.SpawnNetworkObject();
+				}
 				
 				Destroy(networkObjectSpawner.gameObject);
 			}
