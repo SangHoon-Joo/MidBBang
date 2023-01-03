@@ -9,32 +9,14 @@ namespace ProjectWilson
 {
     public class NetworkNonPlayer : NetworkCharacter
     {
-        public enum Side
-        {
-            Red = 0,
-            Blue,
-            None,
-            Max
-        }
-
         [SerializeField]
         private NonPlayerAI _NonPlayerAI;
-        private Side _Side;
-        public Side CurrentSide
-        {
-            get => _Side;
-            set {
-                if (!_InitializedSide) { _InitializedSide = true; }
-                _Side = value;
-            }
-        }
         
-        private bool _InitializedSide;
-
         private void awake()
         {
             Assert.IsNotNull<NonPlayerAI>(_NonPlayerAI);
         }
+        
         public override async void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
@@ -56,14 +38,6 @@ namespace ProjectWilson
                 }
                 _NonPlayerAI.Init(_Side, _TableData.Speed, _TableData.Sight, _TableData.AttackRange, _TableData.AttackDamage);
             }                
-        }
-
-        public override void OnNetworkDespawn()
-        {
-            if (IsOwner)
-            {
-                
-            }
         }
 
         protected override void Attack(float range, int amount)

@@ -25,7 +25,6 @@ namespace ProjectWilson
                 
             instantiatedNetworkObject.transform.localScale = transform.lossyScale;
             instantiatedNetworkObject.Spawn(destroyWithScene: true);
-
             return instantiatedNetworkObject;
         }
     }

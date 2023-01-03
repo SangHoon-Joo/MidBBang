@@ -56,7 +56,6 @@ namespace ProjectWilson
         
         public override async void OnNetworkSpawn()
         {
-            Debug.LogWarning($"[test] OnNetworkSpawn() : IsOwner = {IsOwner}, OwnerClientId = {OwnerClientId}, NetworkObjectId = {NetworkObjectId}, NetworkBehaviourId = {NetworkBehaviourId}");
             Assert.IsNotNull<NetworkNameState>(_CharacterNameState);
             Assert.IsNotNull<NetworkHealthState>(_CharacterHPState);
 			Assert.IsNotNull<NetworkLifeState>(_CharacterLifeState);
@@ -116,6 +115,7 @@ namespace ProjectWilson
 
         public override void OnNetworkDespawn()
         {
+            Debug.LogWarning($"[test] OnNetworkDespawn()");
             _CharacterHPState.HP.OnValueChanged -= OnHPStateChanged;
             _CharacterHPState.MaxHP.OnValueChanged -= OnMaxHPStateChanged;
             _CharacterLifeState.LifeState.OnValueChanged -= OnLifeStateChanged;
@@ -153,8 +153,7 @@ namespace ProjectWilson
                 }
                 else
                 {
-                    OnNetworkDespawn();
-                    Destroy(this.gameObject);
+                    NetworkObject.Despawn(true);
                 }
             }
         }

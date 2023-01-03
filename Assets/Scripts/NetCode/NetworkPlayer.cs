@@ -29,7 +29,9 @@ namespace ProjectWilson
 
                 string locationTagName = IsHost ? "RedPlayerStartLocation" : "BluePlayerStartLocation";
                 InitPosition(locationTagName);
-
+                
+                CurrentSide = IsHost ? Side.Red : Side.Blue;
+               
                 _CharacterController.OnAttack += Attack;
                 _CharacterMovementController.runSpeed = _TableData.Speed;
 
@@ -39,6 +41,7 @@ namespace ProjectWilson
 
         public override void OnNetworkDespawn()
         {
+            base.OnNetworkDespawn();
             if (IsOwner)
             {
                 _CharacterController.OnAttack -= Attack;

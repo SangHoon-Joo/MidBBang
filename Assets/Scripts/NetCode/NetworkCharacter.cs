@@ -7,6 +7,25 @@ namespace ProjectWilson
 {
     public class NetworkCharacter : NetworkActor
     {
+        public enum Side
+        {
+            Red = 0,
+            Blue,
+            None,
+            Max
+        }
+
+        protected Side _Side;
+        public Side CurrentSide
+        {
+            get => _Side;
+            set {
+                if (!_InitializedSide) { _InitializedSide = true; }
+                _Side = value;
+            }
+        }
+        protected bool _InitializedSide;
+
 		public float Sight { protected set;	get; }
 		
         public override void OnNetworkSpawn()
@@ -21,7 +40,7 @@ namespace ProjectWilson
         protected virtual void Attack(float range, int amount)
         {
             NetworkCharacter targetNetworkCharacter = DetectForwardCharacter(range);
-            if(targetNetworkCharacter == null)
+            if(targetNetworkCharacter == null || targetNetworkCharacter.CurrentSide == CurrentSide)
                 return;
             
             targetNetworkCharacter.ReceiveHP(-amount);
