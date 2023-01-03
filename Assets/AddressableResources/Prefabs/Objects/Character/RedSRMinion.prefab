@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ce9ae96220c81234996386fefdce2f2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 7608737381005390119}
   - component: {fileID: 4357187526365411471}
   m_Layer: 7
-  m_Name: SRMinion
+  m_Name: RedSRMinion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _NavMeshAgent: {fileID: 7608737381005390119}
   _Collider: {fileID: 4357187526365411471}
-  Speed: 2
   RotationSpeed: 10
 --- !u!195 &7608737381005390119
 NavMeshAgent:

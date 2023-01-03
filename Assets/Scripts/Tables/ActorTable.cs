@@ -16,6 +16,8 @@ namespace ProjectWilson
 		public string Gender;
 		public float HP;
 		public float Sight;
+		public float AttackRange;
+		public float AttackDamage;
 		public float Speed;
 		public float SummonOrder;
 		public string FocusIconName;
@@ -50,6 +52,8 @@ namespace ProjectWilson
 		public int HP { private set; get; }
 		public float Sight { private set; get; }
 		public float Speed { private set; get; }
+		public float AttackRange { private set; get; }
+		public int AttackDamage { private set; get; }
 		public int SummonOrder { private set; get; }
 		public string FocusIconName { private set; get; }
 		public string PrefabPath { private set; get; }
@@ -68,6 +72,8 @@ namespace ProjectWilson
 			HP = (int)characterTableData.HP;
 			Sight = characterTableData.Sight;
 			Speed = characterTableData.Speed;
+			AttackRange = characterTableData.AttackRange;
+			AttackDamage = (int)characterTableData.AttackDamage;
 			SummonOrder = (int)characterTableData.SummonOrder;
 			FocusIconName = characterTableData.FocusIconName;
 			PrefabPath = characterTableData.PrefabPath;

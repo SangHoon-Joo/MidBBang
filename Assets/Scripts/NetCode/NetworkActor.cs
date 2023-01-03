@@ -151,6 +151,11 @@ namespace ProjectWilson
                         SceneGamePlay.Instance.UIGamePlayMain.GameOver(true);
                     }
                 }
+                else
+                {
+                    OnNetworkDespawn();
+                    Destroy(this.gameObject);
+                }
             }
         }
 

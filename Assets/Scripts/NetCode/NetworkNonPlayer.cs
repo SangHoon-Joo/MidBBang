@@ -54,7 +54,7 @@ namespace ProjectWilson
                     }
                     await Task.Delay(100);
                 }
-                _NonPlayerAI.Init(_Side, _TableData.Speed, _TableData.Sight);
+                _NonPlayerAI.Init(_Side, _TableData.Speed, _TableData.Sight, _TableData.AttackRange, _TableData.AttackDamage);
             }                
         }
 

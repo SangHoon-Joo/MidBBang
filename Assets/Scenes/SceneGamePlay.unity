@@ -403,6 +403,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 209152050346137078, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 293814368942671531, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
       propertyPath: m_TagString
       value: RedPlayerStartLocation
@@ -431,6 +435,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 3602374524495871315, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
+      propertyPath: _PrefabReference
+      value: 
+      objectReference: {fileID: 1693659950176581891, guid: d3e342eee29c50d4caeda9f46aa7d089, type: 3}
     - target: {fileID: 3603024978988853388, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -502,6 +510,10 @@ PrefabInstance:
     - target: {fileID: 4518879519628726532, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606571362802973086, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5397507626098869759, guid: cbce7a9c339f7a449b85ae7ea720d8da, type: 3}
       propertyPath: m_TagString

@@ -19,7 +19,7 @@ namespace ProjectWilson.Gameplay.GameplayObjects
     /// </summary>
     public struct FixedPlayerName : INetworkSerializable
     {
-        FixedString32Bytes _Name;
+        FixedString4096Bytes _Name;
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref _Name);
@@ -31,6 +31,9 @@ namespace ProjectWilson.Gameplay.GameplayObjects
         }
 
         public static implicit operator string(FixedPlayerName s) => s.ToString();
-        public static implicit operator FixedPlayerName(string s) => new FixedPlayerName() { _Name = new FixedString32Bytes(s) };
+        public static implicit operator FixedPlayerName(string s)
+        { Debug.LogWarning($"[test] kkkkkkkkkkkk s = {s}");
+            return new FixedPlayerName() { _Name = new FixedString32Bytes(s) };
+        }
     }
 }

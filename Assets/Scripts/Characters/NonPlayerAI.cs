@@ -34,7 +34,11 @@ namespace ProjectWilson
         private float _SearchTime;
         private readonly float _MaxSearchTime = 1f;
         private float _Sight;
-        private Transform _TargetTransform;
+        private float _AttackRange;
+        private int _AttackDamage;
+        private float _AttackTime;
+        private readonly float _MaxAttackTime = 2.5f;
+        private NetworkActor _TargetActor;
 
 
 		private void Awake()
@@ -44,7 +48,7 @@ namespace ProjectWilson
             enabled = false;
 		}
 
-        public void Init(NetworkNonPlayer.Side side, float speed, float sight)
+        public void Init(NetworkNonPlayer.Side side, float speed, float sight, float attackRange, int attackDamage)
         {
             enabled = true;
 
@@ -55,8 +59,8 @@ namespace ProjectWilson
             _Side = side;
             _Speed = speed;
             _Sight = sight;
-
-            
+            _AttackRange = attackRange;
+            _AttackDamage = attackDamage;
 
             if(_Side == NetworkNonPlayer.Side.None)
                 _FinalDestination = transform.position;
@@ -67,7 +71,6 @@ namespace ProjectWilson
             if(_Side == NetworkNonPlayer.Side.Blue)
                 _FinalDestination = _FinalBlueSideDestination;
 
-            SetMovementTarget(_FinalDestination);
             currentState = AIState.Move;
         }
 
@@ -112,6 +115,7 @@ namespace ProjectWilson
 
         private void Move_EnterState()
         {
+            SetMovementTarget(_FinalDestination);
 			_SearchTime = 0f;
         }
 
@@ -122,10 +126,10 @@ namespace ProjectWilson
             if(_SearchTime < 0f)
             {
                 _SearchTime = _MaxSearchTime;
-                Transform detectedTarget = DetectNonPlayerEnemy();
+                NetworkActor detectedTarget = DetectNonPlayerEnemy();
                 if(detectedTarget != null)
                 {
-                    _TargetTransform = detectedTarget;
+                    _TargetActor = detectedTarget;
                     currentState = AIState.Chase;
                     return;
                 }
@@ -144,23 +148,20 @@ namespace ProjectWilson
             // After moving adjust the position of the dynamic rigidbody.
         }
 
-        public Transform DetectNonPlayerEnemy()
+        public NetworkActor DetectNonPlayerEnemy()
         {
-            Debug.LogWarning($"[test] DetectNonPlayerEnemy() : _Sight = {_Sight}");
-            RaycastHit[] hitInfoArray = DetectNearbyEntities(true, false, _Collider, _Sight);
-            Debug.LogWarning($"[test] DetectNonPlayerEnemy() hitInfoArray.Length = {hitInfoArray.Length}");
+            RaycastHit[] hitInfoArray = DetectNearbyEntities(false, true, _Collider, _Sight);
             foreach(var hitInfo in hitInfoArray)
             {
-                var hitNetworkNonPlayer = hitInfo.collider.GetComponent<NetworkPlayer>();
+                var hitNetworkNonPlayer = hitInfo.collider.GetComponent<NetworkNonPlayer>();
                 if(hitNetworkNonPlayer == null)
                     continue;
                 
-                //if(hitNetworkNonPlayer.CurrentSide == _Side)
-                //    continue;
+                if(hitNetworkNonPlayer.CurrentSide == _Side)
+                    continue;
 
-                return hitNetworkNonPlayer.transform;
+                return hitNetworkNonPlayer;
             }
-            Debug.LogWarning($"[test] DetectNonPlayerEnemy() Fail to detect!!!");
             return null;
         }
 
@@ -178,14 +179,21 @@ namespace ProjectWilson
         private void Chase_EnterState()
         {
 			Debug.Log("Chase Enter");
-            FollowTransform(_TargetTransform);
+            FollowTransform(_TargetActor.transform);
             _SearchTime = 0f;
-
         }
 
         // Run every frame character is moving.
         private void Chase_SuperUpdate()
         {
+            Debug.LogWarning($"[test] Chase_SuperUpdate : Distance = {Vector3.Distance(transform.position, _TargetActor.transform.position)}");
+            Debug.LogWarning($"[test] Chase_SuperUpdate : _AttackRange = {_AttackRange}");
+            if(Vector3.Distance(transform.position, _TargetActor.transform.position) <= _AttackRange)
+            {
+                currentState = AIState.Attack;
+                return;
+            }
+
 			var desiredMovementAmount = _Speed * Time.deltaTime;
             Vector3 movementVector = _NavPath.MoveAlongPath(desiredMovementAmount);
             if (movementVector == Vector3.zero)
@@ -197,6 +205,28 @@ namespace ProjectWilson
             _NavMeshAgent.Move(movementVector);
             RotateTowardsDirection(movementVector);
             // After moving adjust the position of the dynamic rigidbody.
+        }
+
+        private void Attack_EnterState()
+        {
+            Debug.Log("Attack Enter");
+            _AttackTime = 0f;
+        }
+
+        private void Attack_SuperUpdate()
+        {
+            if(_TargetActor == null)
+            {
+                currentState = AIState.Move;
+                return;
+            }
+
+            _AttackTime -= Time.deltaTime;
+            if(_AttackTime < 0f)
+            {
+                _AttackTime = _MaxAttackTime;
+                _TargetActor?.ReceiveHP(-_AttackDamage);
+            }
         }
 
 		#endregion

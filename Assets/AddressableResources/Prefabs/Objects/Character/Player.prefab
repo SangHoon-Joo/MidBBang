@@ -100,13 +100,14 @@ GameObject:
   - component: {fileID: 4785760975752018034}
   - component: {fileID: 4504058495888844942}
   - component: {fileID: 1693659950176581891}
-  - component: {fileID: 4501745196135254890}
   - component: {fileID: 4870210100946691693}
   - component: {fileID: 6628251182287259016}
   - component: {fileID: 5874034162819113584}
   - component: {fileID: 8141913743696253707}
-  - component: {fileID: 5809544293230340433}
-  - component: {fileID: 1106297394209989550}
+  - component: {fileID: 1436173232126518122}
+  - component: {fileID: 5030492145191853422}
+  - component: {fileID: 7997780177333924916}
+  - component: {fileID: 5151166007707508061}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -263,27 +264,6 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &4501745196135254890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6917408529859059243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1d496e8cd43174eae1a9d1bca7a0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CharacterNameState: {fileID: 1106297394209989550}
-  _CharacterHPState: {fileID: 8141913743696253707}
-  _CharacterLifeState: {fileID: 5809544293230340433}
-  _Collider: {fileID: 4504058495888844942}
-  _LocalID: 3999
-  _RedPlayerStartLocation: {fileID: 1140168044766330086, guid: 395fbcbde9800c64e822211902e2ea5e, type: 3}
-  _BluePlayerStartLocation: {fileID: 6128222207825492609, guid: 70a8d02ebaea10e4d9eba67d7795c4b3, type: 3}
-  _CharacterController: {fileID: 6917408529853574095}
-  _CharacterMovementController: {fileID: 6803006620775864851}
 --- !u!114 &4870210100946691693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +340,19 @@ MonoBehaviour:
     m_InternalValue: 0
   MaxHP:
     m_InternalValue: 0
---- !u!114 &5809544293230340433
+--- !u!114 &1436173232126518122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917408529859059243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d4f5149afe93343bcc18a4b6493551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5030492145191853422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _LifeState:
     m_InternalValue: 0
---- !u!114 &1106297394209989550
+--- !u!114 &7997780177333924916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -383,9 +375,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 6917408529859059243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d4f5149afe93343bcc18a4b6493551, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f1d496e8cd43174eae1a9d1bca7a0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CharacterNameState: {fileID: 1436173232126518122}
+  _CharacterHPState: {fileID: 8141913743696253707}
+  _CharacterLifeState: {fileID: 5030492145191853422}
+  _Collider: {fileID: 4504058495888844942}
+  _LocalID: 3999
+  _CharacterController: {fileID: 6917408529853574095}
+  _CharacterMovementController: {fileID: 6803006620775864851}
+--- !u!114 &5151166007707508061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917408529859059243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941d25414d9505441b8d1deb5ac4a51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _LifeState:
+    m_InternalValue: 0
 --- !u!1 &8667807343258406398
 GameObject:
   m_ObjectHideFlags: 0
