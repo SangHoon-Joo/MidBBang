@@ -46,10 +46,10 @@ namespace ProjectWilson
         }
         public LifeState LifeState
         {
-            get => _CharacterLifeState.LifeState.Value;
-            protected set => _CharacterLifeState.LifeState.Value = value;
+            get => _CharacterLifeState.Life.Value;
+            protected set => _CharacterLifeState.Life.Value = value;
         }
-		public bool IsAlive	=> _CharacterLifeState.LifeState.Value == LifeState.Alive;
+		public bool IsAlive	=> _CharacterLifeState.Life.Value == LifeState.Alive;
         public bool IsPC { protected set; get; }
         protected ActorData _TableData;
 		public ActorData TableData { get { return _TableData; } }
@@ -63,7 +63,7 @@ namespace ProjectWilson
 
             _CharacterHPState.HP.OnValueChanged += OnHPStateChanged;
             _CharacterHPState.MaxHP.OnValueChanged += OnMaxHPStateChanged;
-            _CharacterLifeState.LifeState.OnValueChanged += OnLifeStateChanged;
+            _CharacterLifeState.Life.OnValueChanged += OnLifeStateChanged;
             _TableData = TableDataManager.Instance.Actor.Data[_LocalID];
             IsPC = _TableData.Kind == ActorData.Kinds.PC;
 
@@ -118,7 +118,7 @@ namespace ProjectWilson
             Debug.LogWarning($"[test] OnNetworkDespawn()");
             _CharacterHPState.HP.OnValueChanged -= OnHPStateChanged;
             _CharacterHPState.MaxHP.OnValueChanged -= OnMaxHPStateChanged;
-            _CharacterLifeState.LifeState.OnValueChanged -= OnLifeStateChanged;
+            _CharacterLifeState.Life.OnValueChanged -= OnLifeStateChanged;
             if (IsOwner)
             {
                 _CharacterHPState.HPDepleted -= OnDepleteHP;
@@ -160,11 +160,6 @@ namespace ProjectWilson
 
         public void ReceiveHP(int hp)
         {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            // Don't apply damage if god mode is on
-            if (_CharacterLifeState.IsGodMode.Value)
-                return;
-#endif
             if(IsServer)
                 HP = (int)Mathf.Clamp(HP + hp, 0f, MaxHP);
             else

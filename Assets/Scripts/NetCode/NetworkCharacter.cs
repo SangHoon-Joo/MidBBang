@@ -16,6 +16,7 @@ namespace ProjectWilson
         }
 
         protected Side _Side;
+        //protected NetworkVariable<Side> _Side = new NetworkVariable<Side>(Side.None, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public Side CurrentSide
         {
             get => _Side;
@@ -40,8 +41,19 @@ namespace ProjectWilson
         protected virtual void Attack(float range, int amount)
         {
             NetworkCharacter targetNetworkCharacter = DetectForwardCharacter(range);
-            if(targetNetworkCharacter == null || targetNetworkCharacter.CurrentSide == CurrentSide)
+            if(targetNetworkCharacter == null)
+            {
+                Debug.LogWarning($"[test] Attack() targetNetworkCharacter is null");
                 return;
+            }
+                
+            
+            if(targetNetworkCharacter.CurrentSide == CurrentSide)
+            {
+                Debug.LogWarning($"[test] Attack() same side : {CurrentSide}");
+                return;
+            }
+                
             
             targetNetworkCharacter.ReceiveHP(-amount);
         }

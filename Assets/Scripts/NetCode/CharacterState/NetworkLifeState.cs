@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace ProjectWilson.Gameplay.GameplayObjects
 {
+    /// <summary>
+    /// MonoBehaviour containing only one NetworkVariable of type LifeState which represents this object's life state.
+    /// </summary>
     public enum LifeState
     {
         Alive,
@@ -11,21 +14,8 @@ namespace ProjectWilson.Gameplay.GameplayObjects
         Dead,
     }
 
-    /// <summary>
-    /// MonoBehaviour containing only one NetworkVariable of type LifeState which represents this object's life state.
-    /// </summary>
     public class NetworkLifeState : NetworkBehaviour
     {
-        [SerializeField]
-        private NetworkVariable<LifeState> _LifeState = new NetworkVariable<LifeState>(GameplayObjects.LifeState.Alive);
-
-        public NetworkVariable<LifeState> LifeState => _LifeState;
-
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        /// <summary>
-        /// Indicates whether this character is in "god mode" (cannot be damaged).
-        /// </summary>
-        public NetworkVariable<bool> IsGodMode { get; } = new NetworkVariable<bool>(false);
-#endif
+        public NetworkVariable<LifeState> Life = new NetworkVariable<LifeState>(LifeState.Alive);
     }
 }

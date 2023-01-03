@@ -20,18 +20,21 @@ namespace ProjectWilson
             Assert.IsNotNull<RPGCharacterMovementController>(_CharacterMovementController);
 
             base.OnNetworkSpawn();
+
+            string locationTagName = IsHost ? "RedPlayerStartLocation" : "BluePlayerStartLocation";
+            CurrentSide = IsHost ? Side.Blue : Side.Red;
+
             if (IsOwner)
             {
+                CurrentSide = CurrentSide == Side.Blue ? Side.Red : Side.Blue;
+
                 if(SceneGamePlay.Instance == null || SceneGamePlay.Instance.UIGamePlayMain == null)
                     return;
 
                 SceneGamePlay.Instance.UIGamePlayMain.SetMode(UIGamePlayMain.Mode.InPlay, this);
 
-                string locationTagName = IsHost ? "RedPlayerStartLocation" : "BluePlayerStartLocation";
                 InitPosition(locationTagName);
                 
-                CurrentSide = IsHost ? Side.Red : Side.Blue;
-               
                 _CharacterController.OnAttack += Attack;
                 _CharacterMovementController.runSpeed = _TableData.Speed;
 
