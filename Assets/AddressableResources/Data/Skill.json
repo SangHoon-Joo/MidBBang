@@ -1,0 +1,35 @@
+[
+  {
+    "ID": 4000.0,
+    "Name": "AttackLeft",
+    "Latitude": 0.0,
+    "Longitude": 0.0,
+    "Kind": 0.0,
+    "CoolTime": 7.5,
+    "DurationTime": 0.0,
+    "AttackRange": 3.0,
+    "AttackDamage": 50.0
+  },
+  {
+    "ID": 4001.0,
+    "Name": "AttackRight",
+    "Latitude": 0.0,
+    "Longitude": 0.0,
+    "Kind": 0.0,
+    "CoolTime": 7.5,
+    "DurationTime": 0.0,
+    "AttackRange": 3.0,
+    "AttackDamage": 50.0
+  },
+  {
+    "ID": 4002.0,
+    "Name": "SpeedUpMovement",
+    "Latitude": 37.4906,
+    "Longitude": 127.0055,
+    "Kind": 0.0,
+    "CoolTime": 7.5,
+    "DurationTime": 3.7,
+    "AttackRange": 0.0,
+    "AttackDamage": 0.0
+  }
+]
