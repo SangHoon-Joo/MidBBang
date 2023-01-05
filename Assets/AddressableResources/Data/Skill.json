@@ -8,7 +8,8 @@
     "CoolTime": 7.5,
     "DurationTime": 0.0,
     "AttackRange": 3.0,
-    "AttackDamage": 50.0
+    "AttackDamage": 50.0,
+    "Icon": "left_attack"
   },
   {
     "ID": 4001.0,
@@ -19,7 +20,8 @@
     "CoolTime": 7.5,
     "DurationTime": 0.0,
     "AttackRange": 3.0,
-    "AttackDamage": 50.0
+    "AttackDamage": 50.0,
+    "Icon": "right_attack"
   },
   {
     "ID": 4002.0,
@@ -30,6 +32,7 @@
     "CoolTime": 7.5,
     "DurationTime": 3.7,
     "AttackRange": 0.0,
-    "AttackDamage": 0.0
+    "AttackDamage": 0.0,
+    "Icon": "movement_speedup"
   }
 ]

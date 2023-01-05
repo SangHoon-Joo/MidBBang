@@ -19,6 +19,7 @@ namespace ProjectWilson
 		public float DurationTime;
 		public float AttackRange;
 		public float AttackDamage;
+		public string Icon;
 	}
 
 	public class SkillData
@@ -39,6 +40,7 @@ namespace ProjectWilson
 		public float DurationTime { private set; get; }
 		public float AttackRange { private set; get; }
 		public int AttackDamage { private set; get; }
+		public string Icon { private set; get; }
 
 		public SkillData(SkillTableData skillTableData)
 		{
@@ -51,6 +53,7 @@ namespace ProjectWilson
 			DurationTime = skillTableData.DurationTime;
 			AttackRange = skillTableData.AttackRange;
 			AttackDamage = (int)skillTableData.AttackDamage;
+			Icon = skillTableData.Icon;
 		}
 	}
 
