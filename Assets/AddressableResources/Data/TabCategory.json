@@ -1,0 +1,20 @@
+[
+  {
+    "GroupName": "Lobby",
+    "Category": 0.0,
+    "CategoryName": "A",
+    "CategoryIconName": "DressMenu_All"
+  },
+  {
+    "GroupName": "Lobby",
+    "Category": 1.0,
+    "CategoryName": "B",
+    "CategoryIconName": "DressMenu_Head"
+  },
+  {
+    "GroupName": "Lobby",
+    "Category": 2.0,
+    "CategoryName": "S",
+    "CategoryIconName": "DressMenu_Hand"
+  }
+]

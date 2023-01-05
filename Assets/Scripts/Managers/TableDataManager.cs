@@ -12,12 +12,14 @@ namespace ProjectWilson
 		public WorldTable World = new WorldTable();
 		public ActorTable Actor = new ActorTable();
 		public SkillTable Skill = new SkillTable();
+		public TabCategoryTable TabCategory = new TabCategoryTable();
 
 		private TableDataManager()
 		{
 			_TableData.Add(World);
 			_TableData.Add(Actor);
 			_TableData.Add(Skill);
+			_TableData.Add(TabCategory);
 		}
 
 		public override void Init()
